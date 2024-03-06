@@ -1,6 +1,10 @@
 package till.edu.ex5_addsubmuldiv_anynomous;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.view.View;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,16 +13,108 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+        EditText editTextso1;
+        EditText editTextso2;
+        EditText editTextKQ;
+        Button nutCong, nutTru, nutNhan, nutChia;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-    }
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            TimDieuKhien();
+
+            View.OnClickListener boLangNgheCong = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    XuLyCong();
+                }
+            };
+
+            nutCong.setOnClickListener(boLangNgheCong);
+
+            nutTru.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    XuLyTru();
+                }
+            });
+
+            nutNhan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    XuLyNhan();
+                }
+            });
+
+            nutChia.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    XuLyChia();
+                }
+            });
+
+        }
+
+        void TimDieuKhien() {
+            editTextso1 = (EditText) findViewById(R.id.editSo1);
+            editTextso2 = (EditText) findViewById(R.id.editSo2);
+            editTextKQ = (EditText) findViewById(R.id.edtKetQua);
+            nutCong = (Button) findViewById(R.id.btnCong);
+            nutTru = (Button) findViewById(R.id.btnTru);
+            nutNhan = (Button) findViewById(R.id.btnNhan);
+            nutChia = (Button) findViewById(R.id.btnChia);
+        }
+
+        void XuLyCong() {
+            String soThu1 = editTextso1.getText().toString();
+            String soThu2 = editTextso2.getText().toString();
+
+            float soA = Float.parseFloat(soThu1);
+            float soB = Float.parseFloat(soThu2);
+
+            float tong = soA + soB;
+
+            String chuoiKQ = String.valueOf(tong);
+            editTextKQ.setText(chuoiKQ);
+        }
+
+        void XuLyTru() {
+            String soThu1 = editTextso1.getText().toString();
+            String soThu2 = editTextso2.getText().toString();
+
+            float soA = Float.parseFloat(soThu1);
+            float soB = Float.parseFloat(soThu2);
+
+            float hieu = soA - soB;
+
+            String chuoiKQ = String.valueOf(hieu);
+            editTextKQ.setText(chuoiKQ);
+        }
+
+        void XuLyNhan() {
+            String soThu1 = editTextso1.getText().toString();
+            String soThu2 = editTextso2.getText().toString();
+
+            float soA = Float.parseFloat(soThu1);
+            float soB = Float.parseFloat(soThu2);
+
+            float tich = soA * soB;
+
+            String chuoiKQ = String.valueOf(tich);
+            editTextKQ.setText(chuoiKQ);
+        }
+
+        void XuLyChia() {
+            String soThu1 = editTextso1.getText().toString();
+            String soThu2 = editTextso2.getText().toString();
+
+            float soA = Float.parseFloat(soThu1);
+            float soB = Float.parseFloat(soThu2);
+
+            float thuong = soA / soB;
+
+            String chuoiKQ = String.valueOf(thuong);
+            editTextKQ.setText(chuoiKQ);
+        }
 }
