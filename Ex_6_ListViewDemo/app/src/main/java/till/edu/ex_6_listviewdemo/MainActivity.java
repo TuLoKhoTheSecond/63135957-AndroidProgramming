@@ -7,13 +7,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-import java.util.ArrayList;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> dsTenTinhThanhVN;
@@ -22,10 +22,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //Hien thi dl len list  view
         //B1: can co du lieu
         //ArrayList<String> dsTenTinhThanhVN; //khai bao
-        dsTenTinhThanhVN = new ArrayList<>(); //tao the hien cu the, xin moi
+        dsTenTinhThanhVN = new ArrayList<>(); //Tao the hien cu the, xin moi
         //Them du lieu
         dsTenTinhThanhVN.add("Hà Nội");
         dsTenTinhThanhVN.add("Thành phố Hồ Chí Minh");
@@ -48,7 +49,20 @@ public class MainActivity extends AppCompatActivity {
         lvTenTinhThanh.setAdapter(adapterTinhThanh);
         //3.3 Lang nghe va xu li su kien tuong tac
         //Gan bo lang nghe vao
-        
-    };
+        lvTenTinhThanh.setOnItemClickListener(BoLangNghevaXL);
+    }
+    //Tao bo lang nghe va xu li su kien OnItemClick, dat vao 1 bien
+    AdapterView.OnItemClickListener BoLangNghevaXL = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            //Code xu ly
+            //i la vi tri pt vua dc click
+            //Hien len man hinh 1 thong bao nhanh ve pt vua dc chon
+            ////Lay gt cua pt thu i
+            String strTenTinhChon = dsTenTinhThanhVN.get(i);
+            Toast.makeText(MainActivity.this, "Bạn vừa chọn: "+String.valueOf(i), Toast.LENGTH_LONG).show();
+            //Toast.makeText(MainActivity.this,strTenTinhChon, Toast.LENGTH_LONG).show();
 
+        }
+    };
 }
