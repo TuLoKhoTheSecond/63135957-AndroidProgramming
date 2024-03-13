@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import java.util.ArrayList;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -15,16 +16,97 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    ArrayList<String> dsTD;
+    ArrayAdapter<String> adapterTD;
+    Button btnThem,btnSua,btnXoa;
+    ListView lvThucDon;
+    EditText edtThucDon;
+
+    int ViTri = -1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        setContentView(R.layout.activity_main);
+        btnThem = (Button)findViewById(R.id.btnThem);
+        btnSua = (Button)findViewById(R.id.btnSua);
+        btnXoa = (Button)findViewById(R.id.btnXoa);
+        edtThucDon = (EditText)findViewById(R.id.edtThucDon);
+        dsTD = new ArrayList<String>();
+        dsTD.add("Bánh Mì");
+        dsTD.add("Cơm Tấm");
+        dsTD.add("Phá Lấu");
+        dsTD.add("Lẩu");
+        dsTD.add("Mì Cay");
+        dsTD.add("Lagu");
+
+        adapterTD = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1,
+                dsTD);
+
+        lvThucDon = findViewById(R.id.lvThucDonYeuThich);
+        lvThucDon.setAdapter(adapterTD);
+        lvThucDon.setOnItemClickListener(BoLangNghevaXL);
+        ThemPhanTu();
+        SuaPhanTu();
+        XoaPhanTu();
+
+    }
+    AdapterView.OnItemClickListener BoLangNghevaXL = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            String strTenTDChon = dsTD.get(i);
+            /*Toast.makeText(MainActivity.this, "Bạn vừa chọn: "+String.valueOf(i), Toast.LENGTH_LONG).show();*/
+            Toast.makeText(MainActivity.this,strTenTDChon, Toast.LENGTH_LONG).show();
+        }
+    };
+    public void ThemPhanTu(){
+        btnThem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String baiHat = edtThucDon.getText().toString();
+                dsTD.add(baiHat);
+                adapterTD.notifyDataSetChanged();
+            }
+        });
+    }
+    public void XoaPhanTu() {
+        lvThucDon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                edtThucDon.setText(dsTD.get(position));
+                ViTri = position;
+            }
+        });
+        btnXoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dsTD.remove(ViTri);
+                adapterTD.notifyDataSetChanged();
+            }
+        });
+    }
+    public void SuaPhanTu(){
+        lvThucDon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                edtThucDon.setText(dsTD.get(position));
+                ViTri = position;
+            }
+        });
+        btnSua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dsTD.set(ViTri, edtThucDon.getText().toString());
+                adapterTD.notifyDataSetChanged();
+            }
         });
     }
 }
