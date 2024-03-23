@@ -130,10 +130,6 @@ public class AppMayTinhBoTui extends JFrame {
                     double value = Double.parseDouble(txtResult.getText());
                     if(cmd.equals("sqrt")) {
                         value = Math.sqrt(value);
-                    } else if (cmd.equals("%")) {
-                        value = value * 100;
-                    } else if(cmd.equals("1/x")) {
-                        value = 1/value;
                     }
                     txtResult.setText("" +value);
                 } catch (Exception e) {
@@ -183,6 +179,23 @@ public class AppMayTinhBoTui extends JFrame {
         panel_2.add(btnMultiply);
         
         JButton btnPercentage = new JButton("%");
+        btnPercentage.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent evt) {
+        		if(txtResult.getText().equals("")) {
+                    return;
+                }
+                String cmd = evt.getActionCommand();
+                try {
+                    double value = Double.parseDouble(txtResult.getText());
+                    if(cmd.equals("%")) {
+                        value = value * 100;
+                    }
+                    txtResult.setText("" +value);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        	}
+        });
         btnPercentage.setFont(new Font("Tahoma", Font.PLAIN, 16));
         panel_2.add(btnPercentage);
         
