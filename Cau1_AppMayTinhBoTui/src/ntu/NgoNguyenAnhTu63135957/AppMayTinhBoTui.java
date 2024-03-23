@@ -21,6 +21,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 public class AppMayTinhBoTui extends JFrame {
 
@@ -54,6 +56,8 @@ public class AppMayTinhBoTui extends JFrame {
 		setBounds(100, 100, 673, 494);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		String operandl = " ";
+		char operator = ' ';
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -114,6 +118,14 @@ public class AppMayTinhBoTui extends JFrame {
 		panel_2.add(btnNumber3);
 		
 		JButton btnDivide = new JButton("/");
+		btnDivide.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent evt) {
+			}
+		});
+		btnDivide.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnDivide.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panel_2.add(btnDivide);
 		
@@ -152,6 +164,10 @@ public class AppMayTinhBoTui extends JFrame {
 		panel_2.add(btnNumber6);
 		
 		JButton btnMultiply = new JButton("*");
+		btnMultiply.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnMultiply.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panel_2.add(btnMultiply);
 		
@@ -190,6 +206,10 @@ public class AppMayTinhBoTui extends JFrame {
 		panel_2.add(btnNumber9);
 		
 		JButton btnAdd = new JButton("+");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAdd.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panel_2.add(btnAdd);
 		
@@ -208,6 +228,18 @@ public class AppMayTinhBoTui extends JFrame {
 		panel_2.add(btnNumber0);
 		
 		JButton btnPlus = new JButton("+/-");
+		btnPlus.addActionListener(new ActionListener() {
+			// code dùng để đảo dấu số đã nhập
+			public void actionPerformed(ActionEvent evt) {
+				try {
+					double value = Double.parseDouble(txtResult.getText());
+					value = -value;
+					txtResult.setText(""+ value);
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		btnPlus.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panel_2.add(btnPlus);
 		
@@ -216,11 +248,22 @@ public class AppMayTinhBoTui extends JFrame {
 		panel_2.add(btnClear);
 		
 		JButton btnSubtract = new JButton("-");
+		btnSubtract.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent evt) {
+			}
+		});
+		btnSubtract.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnSubtract.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panel_2.add(btnSubtract);
 		
 		JButton btnEquals = new JButton("=");
 		btnEquals.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panel_2.add(btnEquals);
+		
+		
+		
 	}
 }
