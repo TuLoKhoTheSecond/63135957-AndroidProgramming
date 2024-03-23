@@ -110,15 +110,6 @@ public class AppMayTinhBoTui extends JFrame {
         panel_2.add(btnNumber3);
         
 
-        JButton btnNumber4 = new JButton("4");
-        btnNumber4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        btnNumber4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                String cmd = evt.getActionCommand();
-                txtResult.setText(txtResult.getText() + cmd); 
-            }
-        });
-        panel_2.add(btnNumber4);
         JButton btnDivide = new JButton("/");
         btnDivide.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -136,6 +127,15 @@ public class AppMayTinhBoTui extends JFrame {
         btnSquareRoot.setFont(new Font("Tahoma", Font.PLAIN, 16));
         panel_2.add(btnSquareRoot);
         
+        JButton btnNumber4 = new JButton("4");
+        btnNumber4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        btnNumber4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                String cmd = evt.getActionCommand();
+                txtResult.setText(txtResult.getText() + cmd); 
+            }
+        });
+        panel_2.add(btnNumber4);
         
         JButton btnNumber5 = new JButton("5");
         btnNumber5.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -156,7 +156,19 @@ public class AppMayTinhBoTui extends JFrame {
             }
         });
         panel_2.add(btnNumber6);
-
+        JButton btnMultiply = new JButton("*");
+        btnMultiply.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                performOperation("*");
+            }
+        });
+        btnMultiply.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        panel_2.add(btnMultiply);
+        
+        JButton btnPercentage = new JButton("%");
+        btnPercentage.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        panel_2.add(btnPercentage);
+        
         JButton btnNumber7 = new JButton("7");
         btnNumber7.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btnNumber7.addActionListener(new ActionListener() {
@@ -186,7 +198,22 @@ public class AppMayTinhBoTui extends JFrame {
             }
         });
         panel_2.add(btnNumber9);
-
+        
+        JButton btnSubtract = new JButton("-");
+        btnSubtract.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                performOperation("-");
+            }
+        });
+        btnSubtract.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        panel_2.add(btnSubtract);
+        JButton btnFraction = new JButton("1/x");
+        btnFraction.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        btnFraction.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        panel_2.add(btnFraction);
         
         JButton btnNumber0 = new JButton("0");
         btnNumber0.addActionListener(numberActionListener);
@@ -219,32 +246,7 @@ public class AppMayTinhBoTui extends JFrame {
         btnClear.setFont(new Font("Tahoma", Font.PLAIN, 16));
         panel_2.add(btnClear);
 
-        
-        
-        
 
-        JButton btnMultiply = new JButton("*");
-        btnMultiply.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                performOperation("*");
-            }
-        });
-        btnMultiply.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        panel_2.add(btnMultiply);
-        
-        JButton btnPercentage = new JButton("%");
-        btnPercentage.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        panel_2.add(btnPercentage);
- 
-        JButton btnSubtract = new JButton("-");
-        btnSubtract.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                performOperation("-");
-            }
-        });
-        btnSubtract.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        panel_2.add(btnSubtract);
-  
         JButton btnAdd = new JButton("+");
         btnAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -262,6 +264,8 @@ public class AppMayTinhBoTui extends JFrame {
         });
         btnEquals.setFont(new Font("Tahoma", Font.PLAIN, 16));
         panel_2.add(btnEquals);
+        
+        
     }
 
     private void performOperation(String op) {
