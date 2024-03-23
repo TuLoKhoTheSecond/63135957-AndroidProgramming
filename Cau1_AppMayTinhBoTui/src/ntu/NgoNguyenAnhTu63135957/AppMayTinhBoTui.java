@@ -240,7 +240,20 @@ public class AppMayTinhBoTui extends JFrame {
         JButton btnFraction = new JButton("1/x");
         btnFraction.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btnFraction.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
+        	public void actionPerformed(ActionEvent evt) {
+        		if(txtResult.getText().equals("")) {
+                    return;
+                }
+                String cmd = evt.getActionCommand();
+                try {
+                    double value = Double.parseDouble(txtResult.getText());
+                    if(cmd.equals("1/x")) {
+                        value = 1/value;
+                    }
+                    txtResult.setText("" +value);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
         	}
         });
         panel_2.add(btnFraction);
