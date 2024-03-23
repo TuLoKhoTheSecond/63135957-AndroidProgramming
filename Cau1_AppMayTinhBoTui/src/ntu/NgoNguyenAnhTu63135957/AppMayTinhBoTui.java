@@ -121,25 +121,25 @@ public class AppMayTinhBoTui extends JFrame {
         
         JButton btnSquareRoot = new JButton("sqrt");
         btnSquareRoot.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent evt) {
-        		if(txtResult.getText().equals("")) {
-        			return;
-        		}
-        		String cmd = evt.getActionCommand();
-        		try {
-        			double value = Double.parseDouble(txtResult.getText());
-        			if(cmd.equals("sqrt")) {
-        				value = Math.sqrt(value);
-        			}else if (cmd.equals("%")) {
-        				value = value * 100;
-        			}if(cmd.equals("1/x")) {
-        				value = 1/value;
-        			}
-        			txtResult.setText("" +value);
-        		} catch (Exception e) {
-        			e.printStackTrace();
-        		}
-        	}
+            public void actionPerformed(ActionEvent evt) {
+                if(txtResult.getText().equals("")) {
+                    return;
+                }
+                String cmd = evt.getActionCommand();
+                try {
+                    double value = Double.parseDouble(txtResult.getText());
+                    if(cmd.equals("sqrt")) {
+                        value = Math.sqrt(value);
+                    } else if (cmd.equals("%")) {
+                        value = value * 100;
+                    } else if(cmd.equals("1/x")) {
+                        value = 1/value;
+                    }
+                    txtResult.setText("" +value);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         });
         btnSquareRoot.setFont(new Font("Tahoma", Font.PLAIN, 16));
         panel_2.add(btnSquareRoot);
