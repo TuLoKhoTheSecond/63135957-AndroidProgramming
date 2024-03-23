@@ -108,6 +108,7 @@ public class AppMayTinhBoTui extends JFrame {
             }
         });
         panel_2.add(btnNumber3);
+        
 
         JButton btnNumber4 = new JButton("4");
         btnNumber4.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -118,6 +119,23 @@ public class AppMayTinhBoTui extends JFrame {
             }
         });
         panel_2.add(btnNumber4);
+        JButton btnDivide = new JButton("/");
+        btnDivide.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                performOperation("/");
+            }
+        });
+        btnDivide.setFont(new Font("Tahoma", Font.PLAIN, 16));	
+        panel_2.add(btnDivide);
+        
+        JButton btnSquareRoot = new JButton("sqrt");
+        btnSquareRoot.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        btnSquareRoot.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        panel_2.add(btnSquareRoot);
+        
         
         JButton btnNumber5 = new JButton("5");
         btnNumber5.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -201,18 +219,9 @@ public class AppMayTinhBoTui extends JFrame {
         btnClear.setFont(new Font("Tahoma", Font.PLAIN, 16));
         panel_2.add(btnClear);
 
-        JButton btnDivide = new JButton("/");
-        btnDivide.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                performOperation("/");
-            }
-        });
-        btnDivide.setFont(new Font("Tahoma", Font.PLAIN, 16));	
-        panel_2.add(btnDivide);
         
-        JButton btnSquareRoot = new JButton("sqrt");
-        btnSquareRoot.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        panel_2.add(btnSquareRoot);
+        
+        
 
         JButton btnMultiply = new JButton("*");
         btnMultiply.addActionListener(new ActionListener() {
@@ -245,7 +254,6 @@ public class AppMayTinhBoTui extends JFrame {
         btnAdd.setFont(new Font("Tahoma", Font.PLAIN,16));
         panel_2.add(btnAdd);
         
-        // Gán ActionListener cho nút kết quả
         JButton btnEquals = new JButton("=");
         btnEquals.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
