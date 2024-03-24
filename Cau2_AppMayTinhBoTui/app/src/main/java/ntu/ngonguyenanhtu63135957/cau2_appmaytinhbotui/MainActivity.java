@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             }
             operator = false;
             number = null;
-            status = "subtract";
+            status = "Subtract";
         });
         btnMultiply.setOnClickListener(view -> {
             if(operator){
