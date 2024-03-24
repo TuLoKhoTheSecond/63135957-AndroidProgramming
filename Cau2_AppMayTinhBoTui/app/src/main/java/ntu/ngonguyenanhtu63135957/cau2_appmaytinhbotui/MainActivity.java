@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewHistory,textviewResult;
     private String number=null;
 
+    double lastnumber = 0,firstnumber = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
