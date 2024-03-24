@@ -20,15 +20,29 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         btn0 = this.findViewById(R.id.btn0);
-        btn1 = this.findViewById(R.id.btn0);
-        btn2 = this.findViewById(R.id.btn0);
-        btn3 = this.findViewById(R.id.btn0);
-        btn4 = this.findViewById(R.id.btn0);
-        btn5 = this.findViewById(R.id.btn0);
-        btn6 = this.findViewById(R.id.btn0);
-        btn7 = this.findViewById(R.id.btn0);
-        btn8 = this.findViewById(R.id.btn0);
-        btn9 = this.findViewById(R.id.btn0);
+        btn1 = this.findViewById(R.id.btn1);
+        btn2 = this.findViewById(R.id.btn2);
+        btn3 = this.findViewById(R.id.btn3);
+        btn4 = this.findViewById(R.id.btn4);
+        btn5 = this.findViewById(R.id.btn5);
+        btn6 = this.findViewById(R.id.btn6);
+        btn7 = this.findViewById(R.id.btn7);
+        btn8 = this.findViewById(R.id.btn8);
+        btn9 = this.findViewById(R.id.btn9);
+
+        btnPlus = this.findViewById(R.id.btnPlus);
+        btnSubtract = this.findViewById(R.id.btnSubtract);
+        btnMultiply = this.findViewById(R.id.btnMultiply);
+        btnDivide = this.findViewById(R.id.btnDivide);
+
+        btnDot = this.findViewById(R.id.btnDot);
+        btnEquals = this.findViewById(R.id.btnEquals);
+        btnAC = this.findViewById(R.id.btnAC);
+        btnDel = this.findViewById(R.id.btnDel);
+
+        textViewHistory = this.findViewById(R.id.textViewHistory);
+        textviewResult = this.findViewById(R.id.textviewResult);
+
 
 
     }
