@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         }
         textviewResult.setText(number);
     }
-    public void Minus(){
+    public void Subtract(){
         if(firstnumber == 0){
             firstnumber = Double.parseDouble(textViewHistory.getText().toString());
         } else  {
@@ -78,6 +78,24 @@ public class MainActivity extends AppCompatActivity {
     public void Plus(){
         lastnumber = Double.parseDouble(textviewResult.getText().toString());
         firstnumber=firstnumber+lastnumber;
+        textviewResult.setText(""+firstnumber);
+    }
+    public void Multiply(){
+        if(firstnumber == 0){
+            firstnumber = 1;
+        }
+        lastnumber = Double.parseDouble(textviewResult.getText().toString());
+        firstnumber=firstnumber*lastnumber;
+        textviewResult.setText(""+firstnumber);
+    }
+    public void Divide(){
+        if(firstnumber == 0){
+            lastnumber = Double.parseDouble(textviewResult.getText().toString());
+            firstnumber = lastnumber;
+        }else {
+            lastnumber = Double.parseDouble(textviewResult.getText().toString());
+            firstnumber = firstnumber / lastnumber;
+        }
         textviewResult.setText(""+firstnumber);
     }
 
