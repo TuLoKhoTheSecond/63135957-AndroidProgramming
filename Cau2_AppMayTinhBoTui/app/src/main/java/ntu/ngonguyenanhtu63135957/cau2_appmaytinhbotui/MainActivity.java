@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private String number=null;
 
     double lastnumber = 0,firstnumber = 0;
+    boolean operator = false;
+    String status = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,87 @@ public class MainActivity extends AppCompatActivity {
         btn7.setOnClickListener(view -> numberclick("7"));
         btn8.setOnClickListener(view -> numberclick("8"));
         btn9.setOnClickListener(view -> numberclick("9"));
+
+        btnPlus.setOnClickListener(view -> {
+            if(operator){
+                if(status == "Multiply"){
+                    Multiply();
+                } else {
+                    if (status == "Divide"){
+                        Divide();
+                    } else {
+                        if (status == "Subtract"){
+                            Subtract();
+                        } else {
+                            Plus();
+                        }
+                    }
+                }
+            }
+            operator = false;
+            number = null;
+            status = "sum";
+        });
+        btnSubtract.setOnClickListener(view -> {
+            if(operator){
+                if(status == "Multiply"){
+                    Multiply();
+                } else {
+                    if (status == "Divide"){
+                        Divide();
+                    } else {
+                        if (status == "sum"){
+                            Plus();
+                        } else {
+                            Subtract();
+                        }
+                    }
+                }
+            }
+            operator = false;
+            number = null;
+            status = "subtract";
+        });
+        btnMultiply.setOnClickListener(view -> {
+            if(operator){
+                if(status == "sum"){
+                    Plus();
+                } else {
+                    if (status == "Divide"){
+                        Divide();
+                    } else {
+                        if (status == "Subtract"){
+                            Subtract();
+                        } else {
+                            Multiply();
+                        }
+                    }
+                }
+            }
+            operator = false;
+            number = null;
+            status = "Multiply";
+        });
+        btnDivide.setOnClickListener(view -> {
+            if(operator){
+                if(status == "Multiply"){
+                    Multiply();
+                } else {
+                    if (status == "sum"){
+                        Plus();
+                    } else {
+                        if (status == "Subtract"){
+                            Subtract();
+                        } else {
+                            Divide();
+                        }
+                    }
+                }
+            }
+            operator = false;
+            number = null;
+            status = "Divide";
+        });
     }
     public void numberclick (String view){
         if(number == null){
@@ -64,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
             number = number + view;
         }
         textviewResult.setText(number);
+        operator = true;
     }
     public void Subtract(){
         if(firstnumber == 0){
