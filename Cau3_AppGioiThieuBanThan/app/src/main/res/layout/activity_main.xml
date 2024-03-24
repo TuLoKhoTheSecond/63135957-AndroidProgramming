@@ -42,10 +42,22 @@
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="16dp"
                     android:text="Ngô Nguyễn Anh Tú"
                     android:textSize="25sp"
+                    android:textStyle="bold"
+
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:text="Sinh Viên Khóa 63 CNTT"
+                    android:textSize="20sp"
                     android:textStyle="bold"
 
                     app:layout_constraintEnd_toEndOf="@+id/imageView2"
@@ -56,6 +68,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
                     android:text="tu.nna.63cntt@ntu.edu.vn"
                     android:textSize="20sp"
                     android:textColor="@color/orange"
@@ -72,23 +85,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/button"
-                        style="@android:style/Widget.Button"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="32dp"
-                        android:layout_marginBottom="10dp"
-                        android:background=""
-                        android:drawableStart="@drawable/ic_1"
-                        android:drawablePadding="20dp"
-                        android:paddingStart="20dp"
-                        android:text="Hồ Sơ của tôi"
-                        android:textAlignment="viewStart"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                    
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
