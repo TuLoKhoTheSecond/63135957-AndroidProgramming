@@ -6,9 +6,9 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import java.text.DecimalFormat;
+
 
 public class MainActivity extends AppCompatActivity {
     private Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnDot,btnEquals,btnPlus,btnSubtract,btnMultiply,btnDivide,btnDel,btnAC;
@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     double lastnumber = 0,firstnumber = 0;
     boolean operator = false;
     String status = null;
+
+    String pattern = "###,###,#####";
+    DecimalFormat decimalFormat = new DecimalFormat(pattern);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -196,15 +199,15 @@ public class MainActivity extends AppCompatActivity {
             firstnumber = Double.parseDouble(textViewHistory.getText().toString());
         } else  {
             lastnumber = Double.parseDouble(textviewResult.getText().toString());
-            firstnumber=firstnumber-lastnumber;
-            
+            firstnumber=firstnumber - lastnumber;
+
         }
-        textviewResult.setText(""+firstnumber);
+        textviewResult.setText(decimalFormat.format(firstnumber));
     }
     public void Plus(){
         lastnumber = Double.parseDouble(textviewResult.getText().toString());
         firstnumber=firstnumber+lastnumber;
-        textviewResult.setText(""+firstnumber);
+        textviewResult.setText(decimalFormat.format(firstnumber));
     }
     public void Multiply(){
         if(firstnumber == 0){
@@ -212,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
         }
         lastnumber = Double.parseDouble(textviewResult.getText().toString());
         firstnumber=firstnumber*lastnumber;
-        textviewResult.setText(""+firstnumber);
+        textviewResult.setText(decimalFormat.format(firstnumber));
     }
     public void Divide(){
         if(firstnumber == 0){
@@ -222,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
             lastnumber = Double.parseDouble(textviewResult.getText().toString());
             firstnumber = firstnumber / lastnumber;
         }
-        textviewResult.setText(""+firstnumber);
+        textviewResult.setText(decimalFormat.format(firstnumber));
     }
 
 }
