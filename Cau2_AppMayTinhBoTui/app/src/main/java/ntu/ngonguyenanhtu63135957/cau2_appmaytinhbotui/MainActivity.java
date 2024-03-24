@@ -65,5 +65,20 @@ public class MainActivity extends AppCompatActivity {
         }
         textviewResult.setText(number);
     }
+    public void Minus(){
+        if(firstnumber == 0){
+            firstnumber = Double.parseDouble(textViewHistory.getText().toString());
+        } else  {
+            lastnumber = Double.parseDouble(textviewResult.getText().toString());
+            firstnumber=firstnumber-lastnumber;
+            
+        }
+        textviewResult.setText(""+firstnumber);
+    }
+    public void Plus(){
+        lastnumber = Double.parseDouble(textviewResult.getText().toString());
+        firstnumber=firstnumber+lastnumber;
+        textviewResult.setText(""+firstnumber);
+    }
 
 }
