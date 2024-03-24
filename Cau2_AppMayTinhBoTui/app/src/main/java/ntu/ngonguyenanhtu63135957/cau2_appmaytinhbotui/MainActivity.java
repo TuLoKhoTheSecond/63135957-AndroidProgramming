@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     private Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnDot,btnEquals,btnPlus,btnSubtract,btnMultiply,btnDivide,btnDel,btnAC;
     private TextView textViewHistory,textviewResult;
+    private String number=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +44,24 @@ public class MainActivity extends AppCompatActivity {
         textViewHistory = this.findViewById(R.id.textViewHistory);
         textviewResult = this.findViewById(R.id.textviewResult);
 
-
-
+        btn0.setOnClickListener(view -> numberclick("0"));
+        btn1.setOnClickListener(view -> numberclick("1"));
+        btn2.setOnClickListener(view -> numberclick("2"));
+        btn3.setOnClickListener(view -> numberclick("3"));
+        btn4.setOnClickListener(view -> numberclick("4"));
+        btn5.setOnClickListener(view -> numberclick("5"));
+        btn6.setOnClickListener(view -> numberclick("6"));
+        btn7.setOnClickListener(view -> numberclick("7"));
+        btn8.setOnClickListener(view -> numberclick("8"));
+        btn9.setOnClickListener(view -> numberclick("9"));
+    }
+    public void numberclick (String view){
+        if(number == null){
+            number = view;
+        } else{
+            number = number + view;
+        }
+        textviewResult.setText(number);
     }
 
 }
