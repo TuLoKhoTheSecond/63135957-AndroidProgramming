@@ -43,9 +43,9 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="15dp"
                     android:text="Ngô Nguyễn Anh Tú"
-                    android:textSize="25sp"
+                    android:textSize="28sp"
                     android:textStyle="bold"
 
                     app:layout_constraintEnd_toEndOf="@+id/imageView2"
@@ -55,7 +55,7 @@
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="55dp"
                     android:text="Sinh Viên Khóa 63 CNTT"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -84,7 +84,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView2">
-
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
