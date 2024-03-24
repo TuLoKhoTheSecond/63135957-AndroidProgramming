@@ -202,12 +202,12 @@ public class MainActivity extends AppCompatActivity {
             firstnumber=firstnumber - lastnumber;
 
         }
-        textviewResult.setText(decimalFormat.format(firstnumber));
+        textviewResult.setText(""+firstnumber);
     }
     public void Plus(){
         lastnumber = Double.parseDouble(textviewResult.getText().toString());
         firstnumber=firstnumber+lastnumber;
-        textviewResult.setText(decimalFormat.format(firstnumber));
+        textviewResult.setText(""+firstnumber);
     }
     public void Multiply(){
         if(firstnumber == 0){
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
         }
         lastnumber = Double.parseDouble(textviewResult.getText().toString());
         firstnumber=firstnumber*lastnumber;
-        textviewResult.setText(decimalFormat.format(firstnumber));
+        textviewResult.setText(""+firstnumber);
     }
     public void Divide(){
         if(firstnumber == 0){
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
             lastnumber = Double.parseDouble(textviewResult.getText().toString());
             firstnumber = firstnumber / lastnumber;
         }
-        textviewResult.setText(decimalFormat.format(firstnumber));
+        textviewResult.setText(""+firstnumber);
     }
 
 }
