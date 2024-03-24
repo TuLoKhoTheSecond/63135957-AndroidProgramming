@@ -139,6 +139,48 @@ public class MainActivity extends AppCompatActivity {
             number = null;
             status = "Divide";
         });
+        btnEquals.setOnClickListener(view -> {
+            if(operator){
+                if(status == "Multiply"){
+                    Multiply();
+                } else {
+                    if (status == "sum"){
+                        Plus();
+                    } else {
+                        if (status == "Subtract"){
+                            Subtract();
+                        } else
+                            if( status == "Divide"){
+                                Divide();
+                        } else {
+                            firstnumber = Double.parseDouble(textviewResult.getText().toString());
+                        }
+                    }
+                }
+            }
+            operator = false;
+        });
+        btnAC.setOnClickListener(view ->{
+            number = null;
+            operator = false;
+            textviewResult.setText("0");
+            textViewHistory.setText("");
+            firstnumber = 0;
+            lastnumber =0;
+        });
+        btnDel.setOnClickListener(view ->{
+            number = number.substring(0,number.length()-1);
+            textviewResult.setText(number);
+                });
+        btnDot.setOnClickListener(view ->{
+            if(number == null){
+                number = "0.";
+            } else {
+                number = number + ".";
+            }
+            textviewResult.setText(number);
+        });
+
     }
     public void numberclick (String view){
         if(number == null){
