@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class LandScapeAdapter extends RecyclerView.Adapter<LandScapeAdapter.ItemLandHolder>{
+public class LandScapeAdapter extends RecyclerView.Adapter<LandScapeAdapter.ItemLandHolder> {
     Context context;
     ArrayList<LandScape> listData;
 
@@ -31,6 +31,7 @@ public class LandScapeAdapter extends RecyclerView.Adapter<LandScapeAdapter.Item
         ItemLandHolder holderCreated = new ItemLandHolder(viewItem);
         return holderCreated;
     }
+
     @Override
     public void onBindViewHolder(@NonNull ItemLandHolder holder, int position) {
         // Lấy đối tượng hiển thị
@@ -45,8 +46,26 @@ public class LandScapeAdapter extends RecyclerView.Adapter<LandScapeAdapter.Item
         int imageId = holder.itemView.getResources().getIdentifier(tenFileAnh, "mipmap", packageName);
         holder.ivLandScape.setImageResource(imageId);
     }
+
     @Override
     public int getItemCount() {
         return listData.size();
+    }
+
+    class ItemLandHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
+        TextView tvCaption;
+        ImageView ivLandScape;
+
+        public ItemLandHolder(@NonNull View itemView) {
+            super(itemView);
+            tvCaption = itemView.findViewById(R.id.textViewCaption);
+            ivLandScape = itemView.findViewById(R.id.imageViewLand);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+
+        }
     }
 }
