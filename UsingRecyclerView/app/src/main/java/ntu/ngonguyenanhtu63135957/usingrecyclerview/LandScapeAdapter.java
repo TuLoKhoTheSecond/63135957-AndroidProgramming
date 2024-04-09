@@ -65,7 +65,14 @@ public class LandScapeAdapter extends RecyclerView.Adapter<LandScapeAdapter.Item
 
         @Override
         public void onClick(View view) {
-
+            int viTriDuocClick = getAdapterPosition();
+            LandScape phanTuDuocClick = listData.get(viTriDuocClick);
+            // Lấy thông tin
+            String ten = phanTuDuocClick.getLandCaption();
+            String tenFileAnh = phanTuDuocClick.getLandImageFileName();
+            // Toast Tên
+            String chuoiThongBao = "Bạn vừa click vào: " + ten;
+            Toast.makeText(view.getContext(), chuoiThongBao, Toast.LENGTH_SHORT).show();
         }
     }
 }

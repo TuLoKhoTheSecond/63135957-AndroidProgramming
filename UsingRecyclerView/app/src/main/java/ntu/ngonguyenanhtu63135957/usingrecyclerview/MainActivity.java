@@ -1,15 +1,11 @@
 package ntu.ngonguyenanhtu63135957.usingrecyclerview;
-
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
-
 import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
     LandScapeAdapter landScapeAdapter;
@@ -34,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         landScapeAdapter = new LandScapeAdapter(this, recyclerViewData);
         //7:
         recyclerViewLandScape.setAdapter(landScapeAdapter);
-
     }
 
     ArrayList<LandScape> getRecyclerViewData() {
@@ -47,4 +42,5 @@ public class MainActivity extends AppCompatActivity {
         dsDuLieu.add(new LandScape("buckingham", "Cung điện Buckinghham"));
         return dsDuLieu;
     }
+
 }
