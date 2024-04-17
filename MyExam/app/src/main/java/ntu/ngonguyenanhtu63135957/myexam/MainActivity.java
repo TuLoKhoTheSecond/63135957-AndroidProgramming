@@ -1,24 +1,78 @@
-package ntu.ngonguyenanhtu63135957.myexam;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+import ntu.ngonguyenanhtu63135957.myexam.ClickListener;
+
+public class MainActivity extends AppCompatActivity implements NavigationView
+        .OnNavigationItemSelectedListener {
+
+    ImageGalleryAdapter2 adapter;
+    RecyclerView recyclerView;
+    ClickListener listiner;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        List<examData> list = new ArrayList<>();
+        list = getData();
+
+        recyclerView
+                = (RecyclerView)findViewById(
+                R.id.recyclerView);
+        listiner = new ClickListener() {
+            @Override
+            public void click(int index){
+                Toast.makeText(MainActivity.this, "clicked item index is " + index, Toast.LENGTH_LONG).show();
+            }
+        };
+        adapter
+                = new ImageGalleryAdapter2(
+                list, getApplication(),listiner);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(
+                new LinearLayoutManager(MainActivity.this));
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+    }
+
+    // Sample data for RecyclerView
+    private List<examData> getData()
+    {
+        List<examData> list = new ArrayList<>();
+        list.add(new examData("First Exam",
+                "May 23, 2015",
+                "Best Of Luck"));
+        list.add(new examData("Second Exam",
+                "June 09, 2015",
+                "b of l"));
+        list.add(new examData("My Test Exam",
+                "April 27, 2017",
+                "This is testing exam .."));
+
+        return list;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
     }
 }
