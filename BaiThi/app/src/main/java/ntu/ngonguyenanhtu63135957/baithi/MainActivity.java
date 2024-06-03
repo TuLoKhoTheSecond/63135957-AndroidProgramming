@@ -28,8 +28,15 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedFrament = null;
                 int itemId = item.getItemId();
+                if(itemId == R.id.main){
+                    findViewById(R.id.titleTextView).setVisibility(View.VISIBLE);
+                } else {
+                    // Ẩn TextView khi chọn các fragment khác
+                    findViewById(R.id.titleTextView).setVisibility(View.GONE);
+                }
                 if (itemId == R.id.nav_home) {
                     selectedFrament = new HomeFragment();
+
                 }
                     // Hiển thị TextView khi chọn màn hình chính (HomeFragment)
                 if (itemId == R.id.nav_cau1) {
